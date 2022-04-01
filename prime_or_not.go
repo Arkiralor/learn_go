@@ -10,9 +10,9 @@ import (
 	"strings"
 )
 
-func check_prime(num int) bool {
+func check_prime(num int) (flag_var bool) {
 	i := 2
-	var flag_var bool = true
+	flag_var = true
 	var remainder int
 	var upper_limit int = num / 2
 
@@ -30,7 +30,7 @@ func check_prime(num int) bool {
 		i += 1
 	}
 
-	return flag_var
+	return
 
 }
 
@@ -44,7 +44,7 @@ func main() {
 	for i := 3; i <= upper_limit; i += 1 {
 		is_prime := check_prime(i)
 		if is_prime == true {
-			fmt.Println(i, " is a Prime Number.")
+			fmt.Println(i, "is a Prime Number.")
 		}
 	}
 
