@@ -12,15 +12,21 @@ import (
 
 func check_prime(num int) bool {
 	i := 2
-	var flag_var bool = false
+	var flag_var bool = true
 	var remainder int
 	var upper_limit int = num / 2
 
 	for i <= upper_limit {
 		remainder = num % i
+		// fmt.Printf("\n%d %% %d = %d ", num, i, remainder)
 		if remainder == 0 {
-			flag_var = true
+			flag_var = false
 		}
+		// if remainder != 0 {
+		// 	fmt.Printf("\n%d is not a factor of %d.", i, num)
+		// } else if remainder == 0 {
+		// 	fmt.Printf("\n%d is a factor of %d, where %d x %d = %d.", i, num, i, num/i, num)
+		// }
 		i += 1
 	}
 
@@ -37,7 +43,7 @@ func main() {
 
 	for i := 3; i <= upper_limit; i += 1 {
 		is_prime := check_prime(i)
-		if is_prime == false {
+		if is_prime == true {
 			fmt.Println(i, " is a Prime Number.")
 		}
 	}
