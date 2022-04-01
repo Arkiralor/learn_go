@@ -21,5 +21,5 @@ Go was developed by google to:
 _Improve programming productivity in an era of multicore, networked machines and large codebases. The designers wanted to address criticism of other languages in use at Google, but keep their useful characteristics_:
 
 - _**Static Typing** & **Runtime Efficiancy** like C_
-- _**Readability & Usability** like Python and/or Javascript_
+- _**Readability** & **Usability** like Python and/or Javascript_
 - _High-Performance **Networking** & **Multiprocessing**_

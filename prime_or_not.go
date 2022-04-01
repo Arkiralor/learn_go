@@ -10,9 +10,9 @@ import (
 	"strings"
 )
 
-func check_prime(num int) (flag_var bool) {
+func check_prime(num int) bool {
 	i := 2
-	flag_var = true
+	flag_var := true
 	var remainder int
 	var upper_limit int = num / 2
 
@@ -30,7 +30,7 @@ func check_prime(num int) (flag_var bool) {
 		i += 1
 	}
 
-	return
+	return flag_var
 
 }
 
@@ -38,10 +38,17 @@ func main() {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Enter the highest value till which we have to check: ")
 	upper_limit_str, _ := reader.ReadString('\n')
+	upper_limit_str = strings.Replace(upper_limit_str, "\r", "", -1)
 	upper_limit_str = strings.Replace(upper_limit_str, "\n", "", -1)
-	upper_limit, _ := strconv.Atoi(upper_limit_str)
+	upper_limit, err := strconv.Atoi(upper_limit_str)
 
-	for i := 3; i <= upper_limit; i += 1 {
+	var i int
+
+	if err != nil {
+		fmt.Println("Error Code: ", err)
+	}
+
+	for i = 3; i <= upper_limit; i += 1 {
 		is_prime := check_prime(i)
 		if is_prime == true {
 			fmt.Println(i, "is a Prime Number.")

@@ -16,8 +16,11 @@ func main() {
 	fmt.Print("Enter the upper limit: ")
 	upper_limit_str, _ := reader.ReadString('\n')
 	upper_limit_str = strings.Replace(upper_limit_str, "\n", "", -1)
+	upper_limit_str = strings.Replace(upper_limit_str, "\r", "", -1)
 	upper_limit, err := strconv.Atoi(upper_limit_str)
-	fmt.Print("Error Code: ", err)
+	if err != nil {
+		fmt.Println("Error Code: ", err)
+	}
 	num1 := 3
 	num2 := 5
 	for i = 1; i <= upper_limit; i += 1 {
@@ -31,6 +34,4 @@ func main() {
 			fmt.Print("\nInvalid value: ", i)
 		}
 	}
-	fmt.Println("\n")
-
 }
