@@ -59,8 +59,10 @@ func main() {
 			prime_number = append(prime_number, i)
 		}
 	}
+
 	t2 := time.Now()
 	fmt.Printf("\nThe list of prime numbers until %d is: %v\n", upper_limit, prime_number)
+
 	fmt.Printf("This operation took %v.\n", t2.Sub(t1))
 
 }
