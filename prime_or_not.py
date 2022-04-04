@@ -14,10 +14,11 @@ def check_prime(num:int) -> bool:
     
     return flag_var
 
-def claculate_time(num:int) -> str:
-    hours = num // 3600
-    minutes = num // 60
-    seconds = num % 60
+def claculate_time(total_seconds:int) -> str:
+    total_minutes = total_seconds//60
+    seconds = total_seconds - (total_minutes*60)
+    hours = total_minutes//60
+    minutes = total_minutes - (hours*60)
 
     return f"\nThis process took {hours} hour(s), {minutes} minute(s) and {seconds} second(s)."
 

@@ -1,4 +1,4 @@
-//Go Program to print "Hello World"
+//Program to print "Hello World"
 
 package main
 
