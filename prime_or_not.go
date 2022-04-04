@@ -8,6 +8,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func check_prime(num int) bool {
@@ -18,19 +19,23 @@ func check_prime(num int) bool {
 
 	for i <= upper_limit {
 		remainder = num % i
-		// fmt.Printf("\n%d %% %d = %d ", num, i, remainder)
 		if remainder == 0 {
 			flag_var = false
 		}
-		// if remainder != 0 {
-		// 	fmt.Printf("\n%d is not a factor of %d.", i, num)
-		// } else if remainder == 0 {
-		// 	fmt.Printf("\n%d is a factor of %d, where %d x %d = %d.", i, num, i, num/i, num)
-		// }
 		i += 1
 	}
 
 	return flag_var
+
+}
+
+func find_time(time_delta int) {
+	secs := float64(time_delta / 10000000)
+	hours := int(secs / 3600)
+	minutes := int(secs / 60)
+	seconds := int(secs) % 60
+
+	fmt.Printf("\nThis operation took %d hour(s), %d minute(s) and %d second(s).\n", hours, minutes, seconds)
 
 }
 
@@ -43,18 +48,25 @@ func main() {
 	upper_limit, err := strconv.Atoi(upper_limit_str)
 
 	var i int
+	var prime_number []int
 
 	if err != nil {
 		fmt.Println("Error Code: ", err)
 	}
-
+	t1 := time.Now()
 	for i = 3; i <= upper_limit; i += 1 {
+		fmt.Println("Checking: ", i, "; timestamp: ", time.Now())
 		is_prime := check_prime(i)
 		if is_prime == true {
-			fmt.Println(i, "is a Prime Number.")
+			prime_number = append(prime_number, i)
 		}
 	}
-
-	fmt.Print("\n")
+	t2 := time.Now()
+	fmt.Printf("\nThe list of prime numbers until %d is: %v\n", upper_limit, prime_number)
+	//// For Debugging; Remove for deployment
+	// for j := 0; j < len(prime_number); j += 1 {
+	// 	fmt.Println(prime_number[j])
+	// }
+	fmt.Printf("This operation took %v.\n", t2.Sub(t1))
 
 }
