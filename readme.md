@@ -118,5 +118,5 @@ Like variables, constants can be declared in almost the exact same way:
 const x = a
 ```
 
-Here, the `const` keyword denotes that the volatile data mentioned next is assigned to a constant similiarly to how
+Here, the `const` keyword denotes that the volatile data mentioned next is assigned to a constant, similiarly to how
 `var` denotes that the volatile data declared next is assigned to a variable.
