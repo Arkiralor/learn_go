@@ -61,7 +61,7 @@ to print the string _Hello world_ to the console.
 
 ### Variables
 
-Go has a very simple syntax for declaring variables. But the simple syntax can have any of the three forms.
+Go has a very simple syntax for declaring variables. But the simple syntax can have any of the three forms mentioned below.
 The most straight-forward of these is:
 ```go
 var x int = a
@@ -74,7 +74,7 @@ var x int
 ```
 In the example directly above, we have only declared a variable `x` of type `int` and have not assigned it any value. In these cases, the compiler assigns a default value to the variable. The default value depends on the type of the variable. For example, if we declare a variable of type `int`, the default value is `0`.
 
-It should be noted that there is also a short-hand method for decalaring variables in go, which goes something like the following:
+It should be noted that there is also a short-hand method for decalaring variables in Go, which goes something like the following:
     
 ```go
 x := a
@@ -84,19 +84,27 @@ Here, the `:=` operator is used to assign a value to a variable at the time of d
 
 #### Types of Variables
 
-Keyword|Description
----|---|
-**int8**|_8-bit signed integer_
-**int16**|_16-bit signed integer_
-**int32**|_32-bit signed integer_
-**int64**|_64-bit signed integer_
-**uint8**|_8-bit unsigned integer_
-**uint16**|_16-bit unsigned integer_
-**uint32**|_32-bit unsigned integer_
-**uint64**|_64-bit unsigned integer_
-**int**|_Both int and uint contain same size, either 32 or 64 bit._
-**uint**|_Both int and uint contain same size, either 32 or 64 bit._
-**rune**|_It is a synonym of int32 and also represent Unicode code points._
-**byte**|_It is a synonym of uint8._
-**uintptr**|_It is an unsigned integer type. Its width is not defined, but its can hold all the bits of a pointer value._
+Keyword|Description|Value Range|Default Value
+---|---|---|---|
+**nil**|_Describes a NULL datatype_|_nil_|_nil_
+**int8**|_8-bit signed integer_|_-128 to 127_|_0_
+**int16**|_16-bit signed integer_|_-32768 to 32767_|_0_
+**int32**|_32-bit signed integer_|_-2147483648 to 2147483647_|_0_
+**int64**|_64-bit signed integer_|_-9223372036854775808 to 9223372036854775807_|_0_
+**uint8**|_8-bit unsigned integer_|_0 to 255_|_0_
+**uint16**|_16-bit unsigned integer_|_0 to 65535_|_0_
+**uint32**|_32-bit unsigned integer_|_0 to 4294967295_|_0_
+**uint64**|_64-bit unsigned integer_|_0 to 18446744073709551615_|_0_
+**int**|_Both int and uint contain same size, either 32 or 64 bit._|_-2147483648 to 2147483647_|_0_
+**uint**|_Both int and uint contain same size, either 32 or 64 bit._|_0 to 4294967295_|_0_
+**bool**|_Boolean datatype_|_true or false_|_false_
+**string**|_String datatype_|_any sequence of characters_|_empty string_
+**rune**|_It is a synonym of int32 and also represent Unicode code points_|_0 to 0x10FFFF_|_0_
+**byte**|_It is a synonym of uint8._|_0 to 255_|_0_
+**uintptr**|_It is an unsigned integer type. Its width is not defined, but its can hold all the bits of a pointer value._|_0 to 18446744073709551615_|_0_
+**float32**|_32-bit IEEE 754 floating-point number_|_-3.402823e+38 to 3.402823e+38_|_0.0_
+**float64**|_64-bit IEEE 754 floating-point number_|_-1.7976931348623157e+308 to 1.7976931348623157e+308_|_0.0_
+**complex64**|_Complex numbers which contain float32 as a real and imaginary component._|_-3.402823e+38 to 3.402823e+38_|_0.0+0.0i_
+**complex128**|_Complex numbers which contain float64 as a real and imaginary component.complex64 Complex numbers which contain float32 as a real and imaginary component._|_-1.7976931348623157e+308 to 1.7976931348623157e+308_|_0.0+0.0i_
+**complex128**|_Complex numbers which contain float64 as a real and imaginary component._|_-1.7976931348623157e+308 to 1.7976931348623157e+308_|_0.0+0.0i_
 
