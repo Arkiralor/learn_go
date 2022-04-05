@@ -41,7 +41,7 @@ import (
     )
 
 func main() {
-	fmt.Print("Hello world.\n")
+    fmt.Print("Hello world.\n")
 }
 ```
 
@@ -63,19 +63,22 @@ to print the string _Hello world_ to the console.
 
 Go has a very simple syntax for declaring variables. But the simple syntax can have any of the three forms mentioned below.
 The most straight-forward of these is:
+
 ```go
 var x int = a
 ```
+
 Here, we are decalaring a variable named `x` of type `int` and assigning it the value `a`. 
 But what if we just want to declare a variable without assigning it a value?
 
 ```go
 var x int
 ```
+
 In the example directly above, we have only declared a variable `x` of type `int` and have not assigned it any value. In these cases, the compiler assigns a default value to the variable. The default value depends on the type of the variable. For example, if we declare a variable of type `int`, the default value is `0`.
 
 It should be noted that there is also a short-hand method for decalaring variables in Go, which goes something like the following:
-    
+
 ```go
 x := a
 ```
