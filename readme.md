@@ -105,6 +105,6 @@ Keyword|Description|Value Range|Default Value
 **float32**|_32-bit IEEE 754 floating-point number_|_-3.402823e+38 to 3.402823e+38_|_0.0_
 **float64**|_64-bit IEEE 754 floating-point number_|_-1.7976931348623157e+308 to 1.7976931348623157e+308_|_0.0_
 **complex64**|_Complex numbers which contain float32 as a real and imaginary component._|_-3.402823e+38 to 3.402823e+38_|_0.0+0.0i_
-**complex128**|_Complex numbers which contain float64 as a real and imaginary component.complex64 Complex numbers which contain float32 as a real and imaginary component._|_-1.7976931348623157e+308 to 1.7976931348623157e+308_|_0.0+0.0i_
+**complex128**|_Complex numbers which contain float64 as a real and imaginary component._|_-1.7976931348623157e+308 to 1.7976931348623157e+308_|_0.0+0.0i_
 **complex128**|_Complex numbers which contain float64 as a real and imaginary component._|_-1.7976931348623157e+308 to 1.7976931348623157e+308_|_0.0+0.0i_
 
