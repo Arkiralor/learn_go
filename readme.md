@@ -123,3 +123,22 @@ const x = a
 
 Here, the `const` keyword denotes that the volatile data mentioned next is assigned to a constant, similiarly to how
 `var` denotes that the volatile data declared next is assigned to a variable.
+
+### Operators
+
+As with any programming language, Go has a set of operators that one can utilize to perform mathematical
+and logical operations (_as the entire subject of **Computer Science** can basically be summarised as **Applied Mathematics**_);
+given below are some of the most common operators:
+
+Operator|Name|Type|Operation|Usage
+---|---|---|---|---|
+=|Assignment Operator|Unary|Assignes a value to a memory location|x = 43
++|Addition Operator|Binary|Adds two values| c = a+b
+-|Subtraction Operator|Binary|Subtracts the second value from the first value| c = a-b
+\*|Multiplication Operator|Binary|Multiplies two values| c = a\*b
+/|Division Operator|Binary|Divides the first value by the second value| c = a/b
+%|Modulo Operator|Binary|Returns the remainder when the first value is divided by the second value| c= a%b
+\\/\\/\\/\\/\\/\\/|\\/\\/\\/\\/\\/\\/|\\/\\/\\/\\/\\/\\/|\\/\\/\\/\\/\\/\\/|\\/\\/\\/\\/\\/\\/
+==|Equal To|Binary|Return boolean value of whether the first statement and the second statement are equivalent| a==b
+!=|Not Equal To|Binary|Return boolean value of whether the first statement and the second statement are unequal| a!=b
+
