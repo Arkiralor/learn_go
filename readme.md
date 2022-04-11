@@ -138,7 +138,6 @@ Operator|Name|Type|Operation|Usage
 \*|Multiplication Operator|Binary|Multiplies two values| c = a\*b
 /|Division Operator|Binary|Divides the first value by the second value| c = a/b
 %|Modulo Operator|Binary|Returns the remainder when the first value is divided by the second value| c= a%b
-\\/\\/\\/\\/\\/\\/|\\/\\/\\/\\/\\/\\/|\\/\\/\\/\\/\\/\\/|\\/\\/\\/\\/\\/\\/|\\/\\/\\/\\/\\/\\/
 ==|Equal To|Binary|Return boolean value of whether the first statement and the second statement are equivalent| a==b
 !=|Not Equal To|Binary|Return boolean value of whether the first statement and the second statement are unequal| a!=b
 
