@@ -126,18 +126,99 @@ Here, the `const` keyword denotes that the volatile data mentioned next is assig
 
 ### Operators
 
-As with any programming language, Go has a set of operators that one can utilize to perform mathematical
+As with any programming language, Go has a set of operators that one can utilize to perform mathematical, relational
 and logical operations (_as the entire subject of **Computer Science** can basically be summarised as **Applied Mathematics**_);
 given below are some of the most common operators:
 
+#### Arithmetic Operators
+
+These are used to perform arithmetic/mathematical operations on operands in Go language.
+
 Operator|Name|Type|Operation|Usage
 ---|---|---|---|---|
-=|Assignment Operator|Unary|Assignes a value to a memory location|x = 43
-+|Addition Operator|Binary|Adds two values| c = a+b
--|Subtraction Operator|Binary|Subtracts the second value from the first value| c = a-b
-\*|Multiplication Operator|Binary|Multiplies two values| c = a\*b
-/|Division Operator|Binary|Divides the first value by the second value| c = a/b
-%|Modulo Operator|Binary|Returns the remainder when the first value is divided by the second value| c= a%b
++|Addition Operator|Binary|Adds two values| a+b
+-|Subtraction Operator|Binary|Subtracts the second value from the first value| a-b
+\*|Multiplication Operator|Binary|Multiplies two values| a\*b
+/|Division Operator|Binary|Divides the first value by the second value| a/b
+%|Modulo Operator|Binary|Returns the remainder when the first value is divided by the second value| a%b
+
+#### Relational Operators
+
+Relational operators are used for comparison of two values.
+
+Operator|Name|Type|Operation|Usage
+---|---|---|---|---|
 ==|Equal To|Binary|Return boolean value of whether the first statement and the second statement are equivalent| a==b
 !=|Not Equal To|Binary|Return boolean value of whether the first statement and the second statement are unequal| a!=b
+\>|Greater Than|Binary|Return boolean value of whether the first operand is greater than the second operand.| a>b
+<|Less Than|Binary|Return boolean value of whether the first operand is less than the second operand.| a\<b
+\>=|Greater Than Or Equal To|Binary|Return boolean value of whether the first operand is greater than or equal to the second operand.| a>=b
+<=|Less Than Or Equal To|Binary|Return boolean value of whether the first operand is lesser than or equal to the second operand.| a<=b
 
+#### Logical Operators
+
+They are used to combine two or more conditions/constraints or to complement the evaluation of the original condition in consideration.  
+
+Operator|Name|Type|Operation|Usage
+---|---|---|---|---|
+&&|Logical And|Binary|Returns the boolean value of whether both statements are true| a&&b
+\|\||Logical Or|Binary|Returns the boolean value of whether either statement is true| a||b
+!|Logical Not|Unary|Returns the boolean value of whether the statement is false| !a
+
+#### Bitwise Operators
+
+In Go, there are six bitwise operators which work at bit level i.e, thry are used to perform bit by bit operations.
+
+Operator|Name|Type|Operation|Usage
+---|---|---|---|---|
+&|Bitwise AND|Binary|Takes two numbers as operands and does AND on every bit of two numbers.| a&b
+\||Bitwise OR|Binary|Takes two numbers as operands and does OR on every bit of two numbers.| a\|b
+^|Bitwise XOR|Binary|Takes two numbers as operands and does XOR on every bit of two numbers.| a^b
+<<|Left Shift|Binary|Takes two numbers, left shifts the bits of the first operand, the second operand decides the number of places to shift.| a\<\<b
+\>\>|Right Shift|Binary|Takes two numbers, right shifts the bits of the first operand, the second operand decides the number of places to shift.| a>>b
+&^|AND NOT|Binary|This is a bit clear operator.| a&^b
+
+#### Assignment Operators
+
+Assignment operators are used to assigning a value to a variable. The left side operand of the assignment operator is a variable and right side operand of the assignment operator is a value. The value on the right side must be of the same data-type of the variable on the left side otherwise the compiler will raise an error.
+
+Operator|Name|Type|Operation|Usage
+---|---|---|---|---|
+=|Simple Assignment|Unary|This operator is used to assign the value on the right to the variable on the left.|x = 43
++=|Add assignment|Binary|This operator is combination of ‘+’ and ‘=’ operators. This operator first adds the current value of the variable on left to the value on the right and then assigns the result to the variable on the left.| a+=b
+-=|Subtract assignment|Binary|This operator is combination of ‘-‘ and ‘=’ operators. This operator first subtracts the current value of the variable on left from the value on the right and then assigns the result to the variable on the left.| a-=b
+\*=|Multiply assignment|Binary|This operator is combination of ‘\*’ and ‘=’ operators. This operator first multiplies the current value of the variable on left to the value on the right and then assigns the result to the variable on the left.| a\*=b
+/=|Division assignment|Binary|This operator is combination of ‘/’ and ‘=’ operators. This operator first divides the current value of the variable on left by the value on the right and then assigns the result to the variable on the left.| a/=b
+%=|Modulo assignment|Binary|This operator is combination of ‘%’ and ‘=’ operators. This operator first modulo the current value of the variable on left by the value on the right and then assigns the result to the variable on the left.| a%=b
+&=|Bitwise AND assignment|Binary|This operator is combination of ‘&’ and ‘=’ operators. This operator first bitwise AND the current value of the variable on left with the value on the right and then assigns the result to the variable on the left.| a&=b
+\|=|Bitwise OR assignment|Binary|This operator is combination of ‘\|’ and ‘=’ operators. This operator first bitwise OR the current value of the variable on left with the value on the right and then assigns the result to the variable on the left.| a\|=b
+^=|Bitwise XOR assignment|Binary|This operator is combination of ‘^’ and ‘=’ operators. This operator first bitwise XOR the current value of the variable on left with the value on the right and then assigns the result to the variable on the left.| a^=b
+<<=|Left Shift assignment|Binary|This operator is combination of ‘<<’ and ‘=’ operators. This operator first left shifts the current value of the variable on left with the value on the right and then assigns the result to the variable on the left.| a<<=b
+\>\>=|Right Shift assignment|Binary|This operator is combination of ‘>>’ and ‘=’ operators. This operator first right shifts the current value of the variable on left with the value on the right and then assigns the result to the variable on the left.| a>>=b
+
+### Operator Precedence in Go
+
+Operator precedence determines the grouping of terms in an expression. This affects how an expression is evaluated. Certain operators have higher precedence than others; for example, the multiplication operator has higher precedence than the addition operator.
+
+For example x = 7 + 3 \* 2; here, x is assigned 13, not 20 because operator \* has higher precedence than +, so it first gets multiplied with 3\*2 and then adds into 7.
+
+Here, operators with the highest precedence appear at the top of the table, those with the lowest appear at the bottom. Within an expression, higher precedence operators will be evaluated first.
+
+Category|Operator|Associativity
+---|---|---|
+Postfix|() [] -> . ++ - -|Left to right
+Unary|+ - ! ~ ++ -- (type)* & sizeof|Left to right
+Multiplicative|* / %|Left to right
+Additive|+ -|Left to right
+Shift|<< >>|Left to right
+Relational|< <= > >=|Left to right
+Equality|== !=|Left to right
+Bitwise AND|&|Left to right
+Bitwise XOR|^|Left to right
+Bitwise OR|\||Left to right
+Logical AND|&&|Left to right
+Logical OR|\|\||Left to right
+Assignment|= += -= *= /= %= >>= <<= &= ^= |=|Right to left
+Comma|,|Left to right
+
+Source: [Tutorials Point](https://www.tutorialspoint.com/go/go_operators_precedence.htm)
