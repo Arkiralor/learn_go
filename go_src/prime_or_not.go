@@ -32,17 +32,24 @@ func check_prime(num int) bool {
 func read_number_from_stdin() int {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Enter the highest value till which we have to check: ")
-	upper_limit_str, _ := reader.ReadString('\n')
-	upper_limit_str = strings.Replace(upper_limit_str, "\r", "", -1)
-	upper_limit_str = strings.Replace(upper_limit_str, "\n", "", -1)
-	upper_limit, err := strconv.Atoi(upper_limit_str)
+	input_str, _ := reader.ReadString('\n')
+	input_str = clean_up_stdin(input_str)
+
+	input_int, err := strconv.Atoi(input_str)
 
 	if err != nil {
 		fmt.Println("Error Code: ", err)
 		os.Exit(1)
 	}
 
-	return upper_limit
+	return input_int
+}
+
+func clean_up_stdin(s string) string {
+	s = strings.Replace(s, "\r", "", -1)
+	s = strings.Replace(s, "\n", "", -1)
+	s = strings.Replace(s, " ", "", -1)
+	return s
 }
 
 func main() {
