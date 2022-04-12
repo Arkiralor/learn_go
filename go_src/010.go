@@ -9,6 +9,7 @@ import (
 	"strings"
 )
 
+// Function to take a string input from the console and convert it into a number (int).
 func NumberFromCon() int {
 	reader := bufio.NewReader(os.Stdin)
 	input_str, inp_err := reader.ReadString('\n')
@@ -25,14 +26,14 @@ func NumberFromCon() int {
 	return input_int
 }
 
+// Function to create a list from a given string, where the separation occurs at the whitespace.
 func ListFromString(s string) []string {
 	s = RemoveEOLMarkers(s)
 	s_2 := strings.Split(s, " ")
 	return s_2
-
-	// return s_2
 }
 
+// Function to remove EOL markers (\n in Unix, \n\r in Windows) from a given string.
 func RemoveEOLMarkers(s string) string {
 	s = strings.Replace(s, "\r", "", -1)
 	s = strings.Replace(s, "\n", "", -1)
@@ -40,21 +41,14 @@ func RemoveEOLMarkers(s string) string {
 	return s
 }
 
+// Function to remove white spaces from a given string.
+func RemoveWhiteSpaces(s string) string {
+	s = strings.Replace(s, " ", "", -1)
+
+	return s
+}
+
 func main() {
-	// var arr []int
-	// fmt.Println("Enter an array: ")
-	// for i := 0; i < 10; i++ {
-	// 	input_int := NumberFromCon()
-	// 	arr = append(arr, input_int)
-	// }
-
-	// var arr [10]int
-	// fmt.Println("Enter an array: ")
-	// for i := 0; i < 10; i++ {
-	// 	arr[i] = NumberFromCon()
-	// }
-
-	// fmt.Println(arr)
 	arr := "Oh what a travesty it is to be in love!"
 	fmt.Println(arr)
 	new_var := ListFromString(arr)
