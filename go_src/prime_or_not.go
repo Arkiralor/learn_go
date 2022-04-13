@@ -62,7 +62,7 @@ func main() {
 	t1 := time.Now()
 	for i = 3; i <= upper_limit; i += 1 {
 		is_prime := check_prime(i)
-		if is_prime == true {
+		if is_prime {
 			log.Printf("Prime number found: %d", i)
 			prime_number = append(prime_number, i)
 		}
@@ -74,5 +74,4 @@ func main() {
 	fmt.Println("The type of the time difference is: ", reflect.TypeOf(t2.Sub(t1)))
 
 	fmt.Printf("\nThis operation took %v.\n", t2.Sub(t1))
-
 }
