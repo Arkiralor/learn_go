@@ -40,8 +40,7 @@ func read_number_from_stdin() int {
 	input_int, err := strconv.Atoi(input_str)
 
 	if err != nil {
-		fmt.Println("Error Code: ", err)
-		os.Exit(1)
+		log.Fatalf("\nError Code: %v\n", err.Error())
 	}
 
 	return input_int
@@ -61,7 +60,7 @@ func find_factors(num int) []int {
 	for i := 2; i <= upper_limit; i += 1 {
 		if num%i == 0 {
 			to_append := convert_to_binary(int64(i))
-			fmt.Println("Factor found: ", to_append)
+			log.Printf("Factor found: %v\n", to_append)
 			factors = append(factors, to_append)
 		}
 	}
@@ -79,19 +78,20 @@ func convert_to_binary(num int64) int {
 }
 
 func random_binary_number(size int) int {
-	rand_bin, current_size := 0, 0
-	var rand_bit int
+	var rand_bin, current_size, rand_bit int = 0, 0, 0
 	for current_size < size {
+		rand.Seed(time.Now().UnixNano())
 		rand_bit = rand.Intn(2)
 		rand_bin = rand_bin*10 + rand_bit
 		current_size += 1
 	}
-	log.Printf("\nRandom binary number: %d\n", rand_bin)
+	log.Printf("Random binary number: %d\n", rand_bin)
 	return rand_bin
 }
 
 func binary_to_int(binary_num int) int {
 	var decimal_num int = 0
+	var copy_binary_num int = binary_num
 	var power int = 0
 	for binary_num > 0 {
 		remainder := binary_num % 10
@@ -99,20 +99,30 @@ func binary_to_int(binary_num int) int {
 		binary_num /= 10
 		power += 1
 	}
-	log.Printf("\nConverted %d to %d.\n", binary_num, decimal_num)
+	log.Printf("Converted %d to %d.\n", copy_binary_num, decimal_num)
 	return decimal_num
 }
 
 func main() {
 	fmt.Print("Enter the number of bits to generate: ")
 	var bits int = read_number_from_stdin()
-	var num int = binary_to_int(random_binary_number(bits))
+	var bin_num = random_binary_number(bits)
+	var num int = binary_to_int(bin_num)
 
 	t1 := time.Now()
 	factors := find_factors(num)
+	if len(factors) == 1 {
+		if check_prime(num) {
+			log.Printf("%d (%d) is a prime number.\n", bin_num, num)
+		} else {
+			log.Printf("%d (%d) is not a prime number.\n", bin_num, num)
+		}
+	} else {
+		log.Printf("%d (%d) is a composite number.\n", bin_num, num)
+	}
 
 	t2 := time.Now()
-	fmt.Printf("\nThe list of factors of %d (%d) is: %v\n", convert_to_binary(int64(num)), num, factors)
+	fmt.Printf("\nThe list of factors of %d (%d) is: %v\n", bin_num, num, factors)
 
-	fmt.Printf("\nThis operation took %v.\n", t2.Sub(t1))
+	log.Printf("This operation took %v.\n", t2.Sub(t1))
 }
